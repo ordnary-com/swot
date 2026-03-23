@@ -25,7 +25,7 @@ Adding a domain (e.g., `ordnary.edu`) automatically includes all its subdomains 
 ### Steps to Add a Domain:
 
 1. Fork this repository. Please use a correct Fork link on GitHub
-   ![image](https://github.com/user-attachments/assets/21acc808-2fbd-4f66-a934-19f3b342736c)
+   ![image](images/image.png)
 2. Create a file. Each domain is represented by a single `.txt` file in the repository. Example: to add `unaab.edu.ng`, create the file `lib/domains/ng/edu/unaab.txt`. Files must have the `.txt` extension.
 3. Write the official name of the educational organization on the first line of the file. It is recommended to use the name in the native language. For example, the file `lib/domains/ng/edu/unaab.txt` has to contain a line in it: _"Federal University of Agriculture, Abeokuta"_. Other lines may optionally contain other names the university is known by, for example the name of the school in English. For domains shared by multiple institutions (e.g., a school district), please add a word `.group` as the last line.
 4. [Submit the pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/).
