@@ -53,18 +53,21 @@ This repository is configured so merges to `main` or `master` automatically publ
 4. The new package version is published to npm.
 5. The workflow commits the updated `swot-data.json`, `package.json`, and `package-lock.json` back to the repository.
 
-### Required GitHub secret
+### Trusted publishing setup
 
-Create a repository secret named `NPM_TOKEN`.
+This workflow is configured for npm trusted publishing with GitHub Actions OIDC, so you do not need an `NPM_TOKEN`.
 
-You can create one in npm and then add it in GitHub:
+Configure it on npm:
 
-1. npm website -> Account Settings -> Access Tokens
-2. Create a token with publish permissions
-3. GitHub repository -> Settings -> Secrets and variables -> Actions
-4. Add `NPM_TOKEN`
+1. npmjs.com -> package `@ordnary/swot`
+2. Settings -> Trusted publishing
+3. Provider: GitHub Actions
+4. Organization or user: `ordnary-com`
+5. Repository: `swot`
+6. Workflow filename: `release.yml`
+7. Environment name: leave empty unless you explicitly add a GitHub Actions environment to the release job
 
-Without `NPM_TOKEN`, the publish workflow will fail.
+Without trusted publishing configured on npm, the publish workflow will fail.
 
 `lib/domains` directory contains a hierarchically structured list of email domains belonging to educational institutions. The domains are mostly owned by colleges and universities, and also by groups of schools united together because they are sharing the same email domain between several institutions, such as Township High School District 211 of Cook County, Illinois.
 
