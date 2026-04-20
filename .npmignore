@@ -1,0 +1,15 @@
+.document
+.github
+.git
+.gitignore
+build.gradle.kts
+gradle
+gradlew
+gradlew.bat
+images
+lib
+node_modules
+scripts
+src
+VERSION
+*.tgz

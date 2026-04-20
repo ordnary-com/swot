@@ -1,0 +1,47 @@
+{
+  "name": "@ordnary/swot",
+  "version": "0.1.0",
+  "description": "Student email verification helpers for Ordnary apps",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ordnary-com/swot.git"
+  },
+  "homepage": "https://github.com/ordnary-com/swot#readme",
+  "bugs": {
+    "url": "https://github.com/ordnary-com/swot/issues"
+  },
+  "keywords": [
+    "student",
+    "email",
+    "verification",
+    "swot",
+    "education",
+    "nextjs",
+    "ordnary"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "swot-data.json"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "prepublishOnly": "npm run build",
+    "release:patch": "npm version patch --no-git-tag-version"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}

@@ -2,6 +2,70 @@
 
 Ordnary uses this **swot** repository to grant free licenses for Ordnary tools to students and teachers worldwide. If your email is in one of the domains listed in this repository, you may request your free license from Ordnary.
 
+## JavaScript / Next.js package usage
+
+This repository also contains a small TypeScript package wrapper so the dataset can be used directly inside Ordnary `Next.js` apps.
+
+### Build
+
+```bash
+npm install
+npm run build
+```
+
+### Add it to another local Ordnary app
+
+From a Next.js app on the same machine:
+
+```bash
+npm install ../swot
+```
+
+If you later move this repo to npm workspaces or pnpm workspaces, keep the same package name and switch to a workspace dependency.
+
+### Example
+
+```ts
+import {
+  findInstitutionByEmail,
+  findStudentDomain,
+  isStudentEmail,
+} from "@ordnary/swot";
+
+const email = "student@uva.nl";
+
+const verified = isStudentEmail(email);
+const institution = findInstitutionByEmail(email);
+const details = findStudentDomain(email);
+```
+
+`isStudentEmail()` returns `false` for stoplisted or abused domains.
+
+## Automatic npm releases
+
+This repository is configured so merges to `main` or `master` automatically publish a new patch release of `@ordnary/swot`.
+
+### How it works
+
+1. A pull request is merged.
+2. GitHub Actions recompiles `swot-data.json`.
+3. The package version is bumped automatically with a patch release.
+4. The new package version is published to npm.
+5. The workflow commits the updated `swot-data.json`, `package.json`, and `package-lock.json` back to the repository.
+
+### Required GitHub secret
+
+Create a repository secret named `NPM_TOKEN`.
+
+You can create one in npm and then add it in GitHub:
+
+1. npm website -> Account Settings -> Access Tokens
+2. Create a token with publish permissions
+3. GitHub repository -> Settings -> Secrets and variables -> Actions
+4. Add `NPM_TOKEN`
+
+Without `NPM_TOKEN`, the publish workflow will fail.
+
 `lib/domains` directory contains a hierarchically structured list of email domains belonging to educational institutions. The domains are mostly owned by colleges and universities, and also by groups of schools united together because they are sharing the same email domain between several institutions, such as Township High School District 211 of Cook County, Illinois.
 
 **Please notice that some email domains were abused in the past, and we don't trust them now**. The list of such domains is in the file https://github.com/ordnary-com/swot/blob/master/lib/domains/abused.txt. If you are a student with email address in an abused domain, please request your free license with GitHub or ISIC authentication at **GitHub** or **ISIC** tabs at https://www.ordnary.com/students. Teachers can request their licenses with their official documents, too (**Official Document** tab at https://www.ordnary.com/students.
