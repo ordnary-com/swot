@@ -48,10 +48,9 @@ This repository is configured so merges to `main` or `master` automatically publ
 ### How it works
 
 1. A pull request is merged.
-2. GitHub Actions recompiles `swot-data.json`.
-3. The package version is bumped automatically with a patch release.
-4. The new package version is published to npm.
-5. The workflow commits the updated `swot-data.json`, `package.json`, and `package-lock.json` back to the repository.
+2. The package version is bumped automatically with a patch release.
+3. The new package version is published to npm.
+4. The workflow commits the updated `package.json` and `package-lock.json` back to the repository.
 
 ### Trusted publishing setup
 
