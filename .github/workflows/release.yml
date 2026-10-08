@@ -7,6 +7,7 @@ on:
       - master
     paths:
       - "lib/domains/**"
+      - "scripts/compile.mjs"
       - "src/**"
       - "README.md"
       - "package.json"
@@ -41,6 +42,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Compile domains to swot-data.json
+        run: node scripts/compile.mjs
+
       - name: Bump patch version
         run: npm run release:patch
 
@@ -60,6 +64,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add package.json package-lock.json
+          git add swot-data.json package.json package-lock.json
           git diff --staged --quiet || git commit -m "chore: release npm package [skip ci]"
           git push
