@@ -26,7 +26,8 @@
     ".": {
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
-    }
+    },
+    "./swot-data.json": "./swot-data.json"
   },
   "files": [
     "dist",
